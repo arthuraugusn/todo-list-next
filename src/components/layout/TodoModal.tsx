@@ -28,27 +28,25 @@ export default function TodoModal(openClose: {
           <ul className="border-2  border-black p-4">
             {openClose.todoList.map((value, index) => {
               return (
-                <>
-                  <li
-                    id={value.id.toString()}
-                    key={`card_${index}`}
-                    className="flex gap-4 my-4 "
-                  >
-                    <p className="border-b border-black">{value.task}</p>
-                    <button
-                      className="  border-2 border-black bg-red-600 px-1"
-                      onClick={() => {
-                        let newTasks: ITodo[] = openClose.todoList
-                          .slice(0, index)
-                          .concat(openClose.todoList.slice(index + 1));
+                <li
+                  key={`card_${index}`}
+                  id={value.id.toString()}
+                  className="flex gap-4 my-4 "
+                >
+                  <p className="border-b border-black">{value.task}</p>
+                  <button
+                    className="  border-2 border-black bg-red-600 px-1"
+                    onClick={() => {
+                      let newTasks: ITodo[] = openClose.todoList
+                        .slice(0, index)
+                        .concat(openClose.todoList.slice(index + 1));
 
-                        openClose.newTodoList(newTasks);
-                      }}
-                    >
-                      X
-                    </button>
-                  </li>
-                </>
+                      openClose.newTodoList(newTasks);
+                    }}
+                  >
+                    X
+                  </button>
+                </li>
               );
             })}
           </ul>
