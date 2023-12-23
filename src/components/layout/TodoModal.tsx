@@ -25,13 +25,13 @@ export default function TodoModal(openClose: {
             </button>
           </div>
 
-          <div className="border-2  border-black p-4">
+          <ul className="border-2  border-black p-4">
             {openClose.todoList.map((value, index) => {
               return (
                 <>
-                  <div
+                  <li
                     id={value.id.toString()}
-                    key={index}
+                    key={`card_${index}`}
                     className="flex gap-4 my-4 "
                   >
                     <p className="border-b border-black">{value.task}</p>
@@ -47,11 +47,11 @@ export default function TodoModal(openClose: {
                     >
                       X
                     </button>
-                  </div>
+                  </li>
                 </>
               );
             })}
-          </div>
+          </ul>
         </div>
       </div>
     </>
